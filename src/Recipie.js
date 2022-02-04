@@ -1,4 +1,5 @@
 import React from "react";
+import { Card, Button } from "react-bootstrap";
 import "./App.css";
 
 const Recipie = ({ recipie }) => {
@@ -6,24 +7,25 @@ const Recipie = ({ recipie }) => {
 
   return (
     <div>
-      <div className="cards-list">
-        <div className="card 1">
-          <div className="card_image">
-            <img src={recipie.image} alt="recipie" />
-          </div>
-          <div className="card_title title-black">
-            <h3>{recipie.title}</h3>
-            {nut.map((nut) => (
-              // console.log(item.name, item.amount, item.unit);
-              <div key={nut.amount}>
-                <h5> {nut.name}</h5>
-                <p> {nut.amount}</p>
-                <p> {nut.unit}</p>
-              </div>
-            ))}
-          </div>
+      <Card style={{ width: "18rem" }}>
+        <Card.Img variant="top" src={recipie.image} alt="recipie" />
+        <Card.Body>
+          <Card.Title>{recipie.title}</Card.Title>
+          <Card.Text>
+            Some quick example text to build on the card title and make up the
+            bulk of the card's content.
+          </Card.Text>
+        </Card.Body>
+      </Card>
+
+      {nut.map((nut) => (
+        // console.log(item.name, item.amount, item.unit);
+        <div key={nut.amount}>
+          <h5> {nut.name}</h5>
+          <p> {nut.amount}</p>
+          <p> {nut.unit}</p>
         </div>
-      </div>
+      ))}
     </div>
   );
 };
