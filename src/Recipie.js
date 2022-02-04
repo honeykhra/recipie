@@ -13,10 +13,14 @@ const Recipie = ({ recipie }) => {
           </div>
           <div className="card_title title-black">
             <h3>{recipie.title}</h3>
-            {nut.forEach(function (item, index, array) {
-              console.log(item.name, item.amount, item.unit);
-            })}
-            <h3>Nutrition is </h3>
+            {nut.map((nut) => (
+              // console.log(item.name, item.amount, item.unit);
+              <div key={nut.amount}>
+                <h5> {nut.name}</h5>
+                <p> {nut.amount}</p>
+                <p> {nut.unit}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
